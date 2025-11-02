@@ -1,4 +1,7 @@
+using System.Security.Claims;
 using System.Text;
+using Hangfire;
+using Hangfire.PostgreSql;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -6,6 +9,7 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using Splittat.API.Data;
 using Splittat.API.Endpoints;
+using Splittat.API.Hubs;
 using Splittat.API.Infrastructure;
 using Splittat.API.Services;
 
@@ -89,7 +93,26 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidIssuer = jwtIssuer,
             ValidAudience = jwtAudience,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecretKey)),
-            ClockSkew = TimeSpan.Zero
+            ClockSkew = TimeSpan.Zero,
+            NameClaimType = ClaimTypes.NameIdentifier // For SignalR user identification
+        };
+
+        // Configure SignalR authentication (allow WebSocket authentication via query string)
+        options.Events = new JwtBearerEvents
+        {
+            OnMessageReceived = context =>
+            {
+                var accessToken = context.Request.Query["access_token"];
+                var path = context.HttpContext.Request.Path;
+
+                // If the request is for our SignalR hub and has a token in query string
+                if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/hubs"))
+                {
+                    context.Token = accessToken;
+                }
+
+                return Task.CompletedTask;
+            }
         };
     });
 
@@ -102,6 +125,28 @@ builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<FileStorageService>();
 builder.Services.AddScoped<IOcrService, OcrService>();
 builder.Services.AddScoped<IReceiptService, ReceiptService>();
+builder.Services.AddScoped<Splittat.API.Jobs.OcrBackgroundJob>();
+builder.Services.AddScoped<Splittat.API.Jobs.CleanupOcrFilesJob>();
+
+// Add Hangfire services for background job processing
+var hangfireConnectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Database connection string not configured");
+
+builder.Services.AddHangfire(configuration => configuration
+    .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+    .UseSimpleAssemblyNameTypeSerializer()
+    .UseRecommendedSerializerSettings()
+    .UsePostgreSqlStorage(options =>
+    {
+        options.UseNpgsqlConnection(hangfireConnectionString);
+    }));
+
+// Add Hangfire server
+builder.Services.AddHangfireServer(options =>
+{
+    options.WorkerCount = 2; // Number of concurrent jobs
+    options.ServerName = $"Splittat-{Environment.MachineName}";
+});
 
 // Add CORS for frontend
 builder.Services.AddCors(options =>
@@ -111,9 +156,19 @@ builder.Services.AddCors(options =>
         policy.WithOrigins("http://localhost:5173")
             .AllowAnyHeader()
             .AllowAnyMethod()
-            .AllowCredentials();
+            .AllowCredentials(); // Required for SignalR WebSocket connections
     });
 });
+
+// Configure Hangfire global settings
+GlobalJobFilters.Filters.Add(new AutomaticRetryAttribute
+{
+    Attempts = 3,
+    DelaysInSeconds = new[] { 30, 60, 120 } // Exponential backoff: 30s, 1m, 2m
+});
+
+// Add SignalR for real-time notifications
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -125,6 +180,14 @@ if (app.Environment.IsDevelopment())
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "Splittat API v1");
         options.RoutePrefix = "swagger";
+    });
+
+    // Add Hangfire Dashboard (development only)
+    app.UseHangfireDashboard("/hangfire", new DashboardOptions
+    {
+        Authorization = Array.Empty<Hangfire.Dashboard.IDashboardAuthorizationFilter>(), // No auth in development
+        DashboardTitle = "Splittat Background Jobs",
+        StatsPollingInterval = 2000 // Refresh every 2 seconds
     });
 }
 
@@ -161,6 +224,17 @@ app.UseAuthorization();
 // Map endpoints
 app.MapAuthEndpoints();
 app.MapReceiptEndpoints();
+
+// Map SignalR hubs
+app.MapHub<ReceiptHub>("/hubs/receipt");
+
+// Schedule recurring Hangfire jobs
+RecurringJob.AddOrUpdate<Splittat.API.Jobs.CleanupOcrFilesJob>(
+    "cleanup-old-ocr-files",
+    job => job.CleanupOldOcrFilesAsync(30),
+    Cron.Daily(hour: 2)); // Run daily at 2 AM
+
+Log.Information("Scheduled recurring job: cleanup-old-ocr-files (runs daily at 2 AM)");
 
 // Health check endpoint
 app.MapGet("/api/health", () => Results.Ok(new { status = "healthy", timestamp = DateTime.UtcNow }))

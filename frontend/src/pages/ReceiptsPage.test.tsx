@@ -10,6 +10,11 @@ vi.mock("@/hooks/useReceipts", () => ({
   useReceipt: vi.fn(),
 }));
 
+// Mock the useReceiptHub hook
+vi.mock("@/hooks/useReceiptHub", () => ({
+  useReceiptHub: vi.fn(),
+}));
+
 // Mock the receipt components
 vi.mock("@/components/receipt", () => ({
   ReceiptUpload: ({ uploading }: { uploading: boolean }) => (
@@ -55,7 +60,7 @@ const mockReceipts: ReceiptListItem[] = [
     date: "2024-01-14T19:45:00Z",
     total: 85.75,
     imageUrl: "https://example.com/receipt2.jpg",
-    status: ReceiptStatus.Processing,
+    status: ReceiptStatus.OcrInProgress,
     createdAt: "2024-01-14T19:45:00Z",
   },
 ];

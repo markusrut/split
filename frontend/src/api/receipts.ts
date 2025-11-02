@@ -3,6 +3,7 @@ import type {
   Receipt,
   ReceiptListItem,
   UpdateReceiptItemsRequest,
+  OcrDebugInfo,
 } from "@/types";
 
 export const receiptsApi = {
@@ -46,5 +47,11 @@ export const receiptsApi = {
   // Delete receipt
   delete: async (id: string): Promise<void> => {
     await apiClient.delete(`/receipts/${id}`);
+  },
+
+  // Get OCR debug info (raw OCR result)
+  getOcrDebug: async (id: string): Promise<OcrDebugInfo> => {
+    const response = await apiClient.get<OcrDebugInfo>(`/receipts/${id}/ocr`);
+    return response.data;
   },
 };

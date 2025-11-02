@@ -53,6 +53,21 @@ vi.mock("@/components/receipt", () => ({
       ))}
     </div>
   ),
+  ReceiptProcessingIndicator: ({
+    status,
+    errorMessage,
+    confidence,
+  }: {
+    status: string;
+    errorMessage?: string;
+    confidence?: number;
+  }) => (
+    <div data-testid="processing-indicator">
+      Status: {status}
+      {errorMessage && ` - Error: ${errorMessage}`}
+      {confidence !== undefined && ` - Confidence: ${confidence}`}
+    </div>
+  ),
 }));
 
 // Helper to set viewport size
@@ -217,10 +232,112 @@ describe("ReceiptDetailPage", () => {
     });
   });
 
-  describe("Snapshot Tests - Processing State", () => {
-    it("matches snapshot with processing receipt", () => {
+  describe("Snapshot Tests - Processing States", () => {
+    it("matches snapshot with Uploaded status", () => {
+      vi.mocked(useReceiptsModule.useReceipt).mockReturnValue({
+        receipt: { ...mockReceipt, status: ReceiptStatus.Uploaded },
+        isLoading: false,
+        error: null,
+        refetch: vi.fn(),
+        updateItems: vi.fn(),
+        updateLoading: false,
+        updateError: null,
+      });
+
+      const { container } = render(<ReceiptDetailPage />);
+      expect(container).toMatchSnapshot();
+    });
+
+    it("matches snapshot with OcrInProgress status", () => {
+      vi.mocked(useReceiptsModule.useReceipt).mockReturnValue({
+        receipt: { ...mockReceipt, status: ReceiptStatus.OcrInProgress },
+        isLoading: false,
+        error: null,
+        refetch: vi.fn(),
+        updateItems: vi.fn(),
+        updateLoading: false,
+        updateError: null,
+      });
+
+      const { container } = render(<ReceiptDetailPage />);
+      expect(container).toMatchSnapshot();
+    });
+
+    it("matches snapshot with OcrCompleted status", () => {
+      vi.mocked(useReceiptsModule.useReceipt).mockReturnValue({
+        receipt: { ...mockReceipt, status: ReceiptStatus.OcrCompleted },
+        isLoading: false,
+        error: null,
+        refetch: vi.fn(),
+        updateItems: vi.fn(),
+        updateLoading: false,
+        updateError: null,
+      });
+
+      const { container } = render(<ReceiptDetailPage />);
+      expect(container).toMatchSnapshot();
+    });
+
+    it("matches snapshot with Processing status", () => {
       vi.mocked(useReceiptsModule.useReceipt).mockReturnValue({
         receipt: { ...mockReceipt, status: ReceiptStatus.Processing },
+        isLoading: false,
+        error: null,
+        refetch: vi.fn(),
+        updateItems: vi.fn(),
+        updateLoading: false,
+        updateError: null,
+      });
+
+      const { container } = render(<ReceiptDetailPage />);
+      expect(container).toMatchSnapshot();
+    });
+
+    it("matches snapshot with ParseFailed status", () => {
+      vi.mocked(useReceiptsModule.useReceipt).mockReturnValue({
+        receipt: {
+          ...mockReceipt,
+          status: ReceiptStatus.ParseFailed,
+          errorMessage: "Could not parse receipt items",
+        },
+        isLoading: false,
+        error: null,
+        refetch: vi.fn(),
+        updateItems: vi.fn(),
+        updateLoading: false,
+        updateError: null,
+      });
+
+      const { container } = render(<ReceiptDetailPage />);
+      expect(container).toMatchSnapshot();
+    });
+
+    it("matches snapshot with Failed status and error message", () => {
+      vi.mocked(useReceiptsModule.useReceipt).mockReturnValue({
+        receipt: {
+          ...mockReceipt,
+          status: ReceiptStatus.Failed,
+          errorMessage: "OCR service unavailable",
+        },
+        isLoading: false,
+        error: null,
+        refetch: vi.fn(),
+        updateItems: vi.fn(),
+        updateLoading: false,
+        updateError: null,
+      });
+
+      const { container } = render(<ReceiptDetailPage />);
+      expect(container).toMatchSnapshot();
+    });
+
+    it("matches snapshot with Ready status and low confidence", () => {
+      vi.mocked(useReceiptsModule.useReceipt).mockReturnValue({
+        receipt: {
+          ...mockReceipt,
+          status: ReceiptStatus.Ready,
+          ocrConfidence: 0.65,
+        },
         isLoading: false,
         error: null,
         refetch: vi.fn(),
@@ -260,6 +377,84 @@ describe("ReceiptDetailPage", () => {
       const { getByTestId } = render(<ReceiptDetailPage />);
       const summary = getByTestId("receipt-summary");
       expect(summary).toBeInTheDocument();
+    });
+
+    it("does not render processing indicator for Ready receipt without confidence", () => {
+      const { queryByTestId } = render(<ReceiptDetailPage />);
+      expect(queryByTestId("processing-indicator")).not.toBeInTheDocument();
+    });
+
+    it("renders processing indicator for Uploaded status", () => {
+      vi.mocked(useReceiptsModule.useReceipt).mockReturnValue({
+        receipt: { ...mockReceipt, status: ReceiptStatus.Uploaded },
+        isLoading: false,
+        error: null,
+        refetch: vi.fn(),
+        updateItems: vi.fn(),
+        updateLoading: false,
+        updateError: null,
+      });
+
+      const { getByTestId } = render(<ReceiptDetailPage />);
+      expect(getByTestId("processing-indicator")).toBeInTheDocument();
+    });
+
+    it("renders processing indicator with error message for Failed status", () => {
+      vi.mocked(useReceiptsModule.useReceipt).mockReturnValue({
+        receipt: {
+          ...mockReceipt,
+          status: ReceiptStatus.Failed,
+          errorMessage: "OCR timeout",
+        },
+        isLoading: false,
+        error: null,
+        refetch: vi.fn(),
+        updateItems: vi.fn(),
+        updateLoading: false,
+        updateError: null,
+      });
+
+      const { getByTestId } = render(<ReceiptDetailPage />);
+      const indicator = getByTestId("processing-indicator");
+      expect(indicator).toBeInTheDocument();
+      expect(indicator).toHaveTextContent("OCR timeout");
+    });
+
+    it("renders processing indicator with low confidence warning", () => {
+      vi.mocked(useReceiptsModule.useReceipt).mockReturnValue({
+        receipt: {
+          ...mockReceipt,
+          status: ReceiptStatus.Ready,
+          ocrConfidence: 0.65,
+        },
+        isLoading: false,
+        error: null,
+        refetch: vi.fn(),
+        updateItems: vi.fn(),
+        updateLoading: false,
+        updateError: null,
+      });
+
+      const { getByTestId } = render(<ReceiptDetailPage />);
+      const indicator = getByTestId("processing-indicator");
+      expect(indicator).toBeInTheDocument();
+      expect(indicator).toHaveTextContent("0.65");
+    });
+
+    it("disables edit button when receipt is not Ready", () => {
+      vi.mocked(useReceiptsModule.useReceipt).mockReturnValue({
+        receipt: { ...mockReceipt, status: ReceiptStatus.Processing },
+        isLoading: false,
+        error: null,
+        refetch: vi.fn(),
+        updateItems: vi.fn(),
+        updateLoading: false,
+        updateError: null,
+      });
+
+      const { getByText } = render(<ReceiptDetailPage />);
+      const editButton = getByText("Edit Items").closest("button");
+      expect(editButton).toBeDisabled();
     });
   });
 });

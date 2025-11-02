@@ -10,6 +10,7 @@ import { Layout } from "@/components/layout";
 import { ReceiptUpload, ReceiptStatusBadge } from "@/components/receipt";
 import { Button, Card, Loading, ErrorMessage } from "@/components/ui";
 import { useReceipts } from "@/hooks/useReceipts";
+import { useReceiptHub } from "@/hooks/useReceiptHub";
 
 export const ReceiptsPage = () => {
   const [showUpload, setShowUpload] = useState(false);
@@ -21,6 +22,9 @@ export const ReceiptsPage = () => {
     uploadLoading,
     uploadError,
   } = useReceipts();
+
+  // Enable SignalR for real-time updates on receipt list
+  useReceiptHub(true);
 
   const handleUpload = (file: File) => {
     uploadReceipt(file);

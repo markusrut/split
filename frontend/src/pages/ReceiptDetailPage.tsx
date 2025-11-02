@@ -7,6 +7,7 @@ import {
   ReceiptStatusBadge,
   ReceiptSummary,
   ReceiptItemsList,
+  ReceiptProcessingIndicator,
 } from "@/components/receipt";
 import { useReceipt, useReceipts } from "@/hooks/useReceipts";
 import { ReceiptStatus, type ReceiptItem } from "@/types";
@@ -194,6 +195,16 @@ export const ReceiptDetailPage = () => {
           </div>
         </div>
 
+        {/* Processing/Error Indicator */}
+        {receipt.status !== ReceiptStatus.Ready && (
+          <ReceiptProcessingIndicator
+            status={receipt.status}
+            errorMessage={receipt.errorMessage}
+            confidence={receipt.ocrConfidence}
+            className="mb-6"
+          />
+        )}
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Receipt Image */}
           <Card padding="none">
@@ -206,6 +217,16 @@ export const ReceiptDetailPage = () => {
 
           {/* Receipt Details */}
           <div className="space-y-6">
+            {/* Low confidence warning for Ready receipts */}
+            {receipt.status === ReceiptStatus.Ready &&
+              receipt.ocrConfidence !== undefined &&
+              receipt.ocrConfidence < 0.8 && (
+                <ReceiptProcessingIndicator
+                  status={receipt.status}
+                  confidence={receipt.ocrConfidence}
+                />
+              )}
+
             {/* Items */}
             <ReceiptItemsList
               items={receipt.items}

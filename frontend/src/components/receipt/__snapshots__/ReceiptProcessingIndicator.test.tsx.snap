@@ -1,0 +1,261 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ReceiptProcessingIndicator > Snapshots > matches snapshot for Failed status with error message 1`] = `
+<div
+  class="rounded-lg border p-4 "
+>
+  <div
+    class="flex items-start gap-3"
+  >
+    <svg
+      aria-hidden="true"
+      class="lucide lucide-circle-alert h-5 w-5 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0"
+      fill="none"
+      height="24"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+      />
+      <line
+        x1="12"
+        x2="12"
+        y1="8"
+        y2="12"
+      />
+      <line
+        x1="12"
+        x2="12.01"
+        y1="16"
+        y2="16"
+      />
+    </svg>
+    <div
+      class="flex-1"
+    >
+      <p
+        class="text-sm font-medium text-gray-900 dark:text-gray-100"
+      >
+        Receipt processing failed.
+      </p>
+      <p
+        class="text-xs text-red-700 dark:text-red-400 mt-1 font-mono"
+      >
+        OCR service timeout
+      </p>
+      <p
+        class="text-xs text-gray-600 dark:text-gray-400 mt-2"
+      >
+        You can still manually add items to this receipt.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ReceiptProcessingIndicator > Snapshots > matches snapshot for OcrInProgress status 1`] = `
+<div
+  class="rounded-lg border p-4 "
+>
+  <div
+    class="flex items-start gap-3"
+  >
+    <svg
+      aria-hidden="true"
+      class="lucide lucide-loader-circle h-5 w-5 animate-spin text-yellow-600 dark:text-yellow-400 mt-0.5 flex-shrink-0"
+      fill="none"
+      height="24"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M21 12a9 9 0 1 1-6.219-8.56"
+      />
+    </svg>
+    <div
+      class="flex-1"
+    >
+      <p
+        class="text-sm font-medium text-gray-900 dark:text-gray-100"
+      >
+        Extracting text from receipt image...
+      </p>
+      <p
+        class="text-xs text-gray-600 dark:text-gray-400 mt-1"
+      >
+        This may take a few moments. You'll be notified when it's ready.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ReceiptProcessingIndicator > Snapshots > matches snapshot for ParseFailed status 1`] = `
+<div
+  class="rounded-lg border p-4 "
+>
+  <div
+    class="flex items-start gap-3"
+  >
+    <svg
+      aria-hidden="true"
+      class="lucide lucide-circle-alert h-5 w-5 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0"
+      fill="none"
+      height="24"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+      />
+      <line
+        x1="12"
+        x2="12"
+        y1="8"
+        y2="12"
+      />
+      <line
+        x1="12"
+        x2="12.01"
+        y1="16"
+        y2="16"
+      />
+    </svg>
+    <div
+      class="flex-1"
+    >
+      <p
+        class="text-sm font-medium text-gray-900 dark:text-gray-100"
+      >
+        Failed to parse receipt items. Please edit manually.
+      </p>
+      <p
+        class="text-xs text-gray-600 dark:text-gray-400 mt-2"
+      >
+        You can still manually add items to this receipt.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ReceiptProcessingIndicator > Snapshots > matches snapshot for Ready with high confidence 1`] = `
+<div
+  class="rounded-lg border p-4 "
+>
+  <div
+    class="flex items-start gap-3"
+  >
+    <div
+      class="h-5 w-5 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mt-0.5 flex-shrink-0"
+    >
+      <div
+        class="h-2 w-2 rounded-full bg-green-600 dark:bg-green-400"
+      />
+    </div>
+    <div
+      class="flex-1"
+    >
+      <p
+        class="text-sm font-medium text-gray-900 dark:text-gray-100"
+      >
+        Receipt processed successfully! (95% confidence)
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ReceiptProcessingIndicator > Snapshots > matches snapshot for Ready with low confidence 1`] = `
+<div
+  class="rounded-lg border p-4 "
+>
+  <div
+    class="flex items-start gap-3"
+  >
+    <div
+      class="h-5 w-5 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mt-0.5 flex-shrink-0"
+    >
+      <div
+        class="h-2 w-2 rounded-full bg-green-600 dark:bg-green-400"
+      />
+    </div>
+    <div
+      class="flex-1"
+    >
+      <p
+        class="text-sm font-medium text-gray-900 dark:text-gray-100"
+      >
+        Receipt processed successfully! (65% confidence)
+      </p>
+      <p
+        class="text-xs text-yellow-700 dark:text-yellow-400 mt-1"
+      >
+        Low confidence detected. Please review the extracted items for accuracy.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ReceiptProcessingIndicator > Snapshots > matches snapshot for Uploaded status 1`] = `
+<div
+  class="rounded-lg border p-4 "
+>
+  <div
+    class="flex items-start gap-3"
+  >
+    <svg
+      aria-hidden="true"
+      class="lucide lucide-loader-circle h-5 w-5 animate-spin text-yellow-600 dark:text-yellow-400 mt-0.5 flex-shrink-0"
+      fill="none"
+      height="24"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M21 12a9 9 0 1 1-6.219-8.56"
+      />
+    </svg>
+    <div
+      class="flex-1"
+    >
+      <p
+        class="text-sm font-medium text-gray-900 dark:text-gray-100"
+      >
+        Receipt uploaded. Starting OCR processing...
+      </p>
+      <p
+        class="text-xs text-gray-600 dark:text-gray-400 mt-1"
+      >
+        This may take a few moments. You'll be notified when it's ready.
+      </p>
+    </div>
+  </div>
+</div>
+`;

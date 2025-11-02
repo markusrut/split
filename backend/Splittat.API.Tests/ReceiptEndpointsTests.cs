@@ -97,7 +97,7 @@ public class ReceiptEndpointsTests : IClassFixture<TestWebApplicationFactory>
         Assert.NotNull(receipt);
         Assert.NotEqual(Guid.Empty, receipt.Id);
 
-        // Snapshot: Receipt should initially be in Processing or Ready/Failed status
+        // Snapshot: Receipt should be in one of the valid statuses
         _output.WriteLine($"Upload Receipt Snapshot:");
         _output.WriteLine($"  Status: {receipt.Status}");
         _output.WriteLine($"  ID: {receipt.Id}");
@@ -105,7 +105,14 @@ public class ReceiptEndpointsTests : IClassFixture<TestWebApplicationFactory>
         _output.WriteLine($"  MerchantName: {receipt.MerchantName}");
         _output.WriteLine($"  Total: {receipt.Total}");
 
-        Assert.Contains(receipt.Status, new[] { ReceiptStatus.Processing, ReceiptStatus.Ready, ReceiptStatus.Failed });
+        Assert.Contains(receipt.Status, new[] {
+            ReceiptStatus.Uploaded,
+            ReceiptStatus.OcrInProgress,
+            ReceiptStatus.OcrCompleted,
+            ReceiptStatus.Ready,
+            ReceiptStatus.ParseFailed,
+            ReceiptStatus.Failed
+        });
         Assert.NotNull(receipt.ImageUrl);
         Assert.Contains("/uploads/", receipt.ImageUrl);
     }

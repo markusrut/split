@@ -1002,6 +1002,2276 @@ exports[`ReceiptDetailPage > Snapshot Tests - Processing State > matches snapsho
 </div>
 `;
 
+exports[`ReceiptDetailPage > Snapshot Tests - Processing States > matches snapshot with Failed status and error message 1`] = `
+<div>
+  <div
+    class="min-h-screen bg-gray-50 dark:bg-gray-900"
+  >
+    <header
+      class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <div
+          class="flex items-center justify-between h-16"
+        >
+          <a
+            class="flex items-center gap-2 text-xl font-bold text-primary-600 dark:text-primary-400"
+            data-discover="true"
+            href="/"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-receipt h-6 w-6"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"
+              />
+              <path
+                d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"
+              />
+              <path
+                d="M12 17.5v-11"
+              />
+            </svg>
+            <span>
+              Splittat
+            </span>
+          </a>
+          <div
+            class="hidden md:flex items-center gap-4"
+          >
+            <button
+              aria-label="Toggle dark mode"
+              class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-moon h-5 w-5 text-gray-700 dark:text-gray-300"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                />
+              </svg>
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-3 py-1.5 text-sm  "
+            >
+              Login
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 dark:bg-primary-500 dark:hover:bg-primary-600 px-3 py-1.5 text-sm  "
+            >
+              Sign Up
+            </button>
+          </div>
+          <button
+            aria-label="Toggle menu"
+            class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-menu h-6 w-6 text-gray-700 dark:text-gray-300"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 5h16"
+              />
+              <path
+                d="M4 12h16"
+              />
+              <path
+                d="M4 19h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+    >
+      <div
+        class="max-w-4xl mx-auto"
+      >
+        <div
+          class="mb-6"
+        >
+          <a
+            data-discover="true"
+            href="/receipts"
+          >
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-2 text-base  gap-2 mb-4"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-arrow-left h-4 w-4"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m12 19-7-7 7-7"
+                />
+                <path
+                  d="M19 12H5"
+                />
+              </svg>
+              Back to Receipts
+            </button>
+          </a>
+          <div
+            class="flex justify-between items-start gap-4"
+          >
+            <div>
+              <h1
+                class="text-2xl font-bold text-gray-900 dark:text-white mb-2"
+              >
+                Grocery Store
+              </h1>
+              <div
+                class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                <div
+                  class="flex items-center gap-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-calendar h-4 w-4"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 2v4"
+                    />
+                    <path
+                      d="M16 2v4"
+                    />
+                    <rect
+                      height="18"
+                      rx="2"
+                      width="18"
+                      x="3"
+                      y="4"
+                    />
+                    <path
+                      d="M3 10h18"
+                    />
+                  </svg>
+                  <span>
+                    January 15, 2024
+                  </span>
+                </div>
+                <span
+                  data-testid="status-badge"
+                >
+                  Failed
+                </span>
+              </div>
+            </div>
+            <div
+              class="flex gap-2"
+            >
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500 dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-950 px-4 py-2 text-base  gap-2"
+                disabled=""
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-pen h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                  />
+                </svg>
+                Edit Items
+              </button>
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 px-4 py-2 text-base  "
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-trash2 lucide-trash-2 h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 11v6"
+                  />
+                  <path
+                    d="M14 11v6"
+                  />
+                  <path
+                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+                  />
+                  <path
+                    d="M3 6h18"
+                  />
+                  <path
+                    d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          data-testid="processing-indicator"
+        >
+          Status: 
+          Failed
+           - Error: OCR service unavailable
+        </div>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-6"
+        >
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm   "
+          >
+            <img
+              alt="Receipt from Grocery Store"
+              class="w-full h-auto rounded-lg"
+              src="https://example.com/receipt1.jpg"
+            />
+          </div>
+          <div
+            class="space-y-6"
+          >
+            <div
+              data-testid="receipt-items"
+            >
+              <div>
+                Milk
+              </div>
+              <div>
+                Bread
+              </div>
+              <div>
+                Eggs
+              </div>
+            </div>
+            <div
+              data-testid="receipt-summary"
+            >
+              Subtotal: 
+              100
+              , Tax: 
+              10
+              , Tip: 
+              15.5
+              , Total: 
+              125.5
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`ReceiptDetailPage > Snapshot Tests - Processing States > matches snapshot with OcrCompleted status 1`] = `
+<div>
+  <div
+    class="min-h-screen bg-gray-50 dark:bg-gray-900"
+  >
+    <header
+      class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <div
+          class="flex items-center justify-between h-16"
+        >
+          <a
+            class="flex items-center gap-2 text-xl font-bold text-primary-600 dark:text-primary-400"
+            data-discover="true"
+            href="/"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-receipt h-6 w-6"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"
+              />
+              <path
+                d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"
+              />
+              <path
+                d="M12 17.5v-11"
+              />
+            </svg>
+            <span>
+              Splittat
+            </span>
+          </a>
+          <div
+            class="hidden md:flex items-center gap-4"
+          >
+            <button
+              aria-label="Toggle dark mode"
+              class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-moon h-5 w-5 text-gray-700 dark:text-gray-300"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                />
+              </svg>
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-3 py-1.5 text-sm  "
+            >
+              Login
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 dark:bg-primary-500 dark:hover:bg-primary-600 px-3 py-1.5 text-sm  "
+            >
+              Sign Up
+            </button>
+          </div>
+          <button
+            aria-label="Toggle menu"
+            class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-menu h-6 w-6 text-gray-700 dark:text-gray-300"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 5h16"
+              />
+              <path
+                d="M4 12h16"
+              />
+              <path
+                d="M4 19h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+    >
+      <div
+        class="max-w-4xl mx-auto"
+      >
+        <div
+          class="mb-6"
+        >
+          <a
+            data-discover="true"
+            href="/receipts"
+          >
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-2 text-base  gap-2 mb-4"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-arrow-left h-4 w-4"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m12 19-7-7 7-7"
+                />
+                <path
+                  d="M19 12H5"
+                />
+              </svg>
+              Back to Receipts
+            </button>
+          </a>
+          <div
+            class="flex justify-between items-start gap-4"
+          >
+            <div>
+              <h1
+                class="text-2xl font-bold text-gray-900 dark:text-white mb-2"
+              >
+                Grocery Store
+              </h1>
+              <div
+                class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                <div
+                  class="flex items-center gap-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-calendar h-4 w-4"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 2v4"
+                    />
+                    <path
+                      d="M16 2v4"
+                    />
+                    <rect
+                      height="18"
+                      rx="2"
+                      width="18"
+                      x="3"
+                      y="4"
+                    />
+                    <path
+                      d="M3 10h18"
+                    />
+                  </svg>
+                  <span>
+                    January 15, 2024
+                  </span>
+                </div>
+                <span
+                  data-testid="status-badge"
+                >
+                  OcrCompleted
+                </span>
+              </div>
+            </div>
+            <div
+              class="flex gap-2"
+            >
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500 dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-950 px-4 py-2 text-base  gap-2"
+                disabled=""
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-pen h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                  />
+                </svg>
+                Edit Items
+              </button>
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 px-4 py-2 text-base  "
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-trash2 lucide-trash-2 h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 11v6"
+                  />
+                  <path
+                    d="M14 11v6"
+                  />
+                  <path
+                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+                  />
+                  <path
+                    d="M3 6h18"
+                  />
+                  <path
+                    d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          data-testid="processing-indicator"
+        >
+          Status: 
+          OcrCompleted
+        </div>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-6"
+        >
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm   "
+          >
+            <img
+              alt="Receipt from Grocery Store"
+              class="w-full h-auto rounded-lg"
+              src="https://example.com/receipt1.jpg"
+            />
+          </div>
+          <div
+            class="space-y-6"
+          >
+            <div
+              data-testid="receipt-items"
+            >
+              <div>
+                Milk
+              </div>
+              <div>
+                Bread
+              </div>
+              <div>
+                Eggs
+              </div>
+            </div>
+            <div
+              data-testid="receipt-summary"
+            >
+              Subtotal: 
+              100
+              , Tax: 
+              10
+              , Tip: 
+              15.5
+              , Total: 
+              125.5
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`ReceiptDetailPage > Snapshot Tests - Processing States > matches snapshot with OcrInProgress status 1`] = `
+<div>
+  <div
+    class="min-h-screen bg-gray-50 dark:bg-gray-900"
+  >
+    <header
+      class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <div
+          class="flex items-center justify-between h-16"
+        >
+          <a
+            class="flex items-center gap-2 text-xl font-bold text-primary-600 dark:text-primary-400"
+            data-discover="true"
+            href="/"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-receipt h-6 w-6"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"
+              />
+              <path
+                d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"
+              />
+              <path
+                d="M12 17.5v-11"
+              />
+            </svg>
+            <span>
+              Splittat
+            </span>
+          </a>
+          <div
+            class="hidden md:flex items-center gap-4"
+          >
+            <button
+              aria-label="Toggle dark mode"
+              class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-moon h-5 w-5 text-gray-700 dark:text-gray-300"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                />
+              </svg>
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-3 py-1.5 text-sm  "
+            >
+              Login
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 dark:bg-primary-500 dark:hover:bg-primary-600 px-3 py-1.5 text-sm  "
+            >
+              Sign Up
+            </button>
+          </div>
+          <button
+            aria-label="Toggle menu"
+            class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-menu h-6 w-6 text-gray-700 dark:text-gray-300"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 5h16"
+              />
+              <path
+                d="M4 12h16"
+              />
+              <path
+                d="M4 19h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+    >
+      <div
+        class="max-w-4xl mx-auto"
+      >
+        <div
+          class="mb-6"
+        >
+          <a
+            data-discover="true"
+            href="/receipts"
+          >
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-2 text-base  gap-2 mb-4"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-arrow-left h-4 w-4"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m12 19-7-7 7-7"
+                />
+                <path
+                  d="M19 12H5"
+                />
+              </svg>
+              Back to Receipts
+            </button>
+          </a>
+          <div
+            class="flex justify-between items-start gap-4"
+          >
+            <div>
+              <h1
+                class="text-2xl font-bold text-gray-900 dark:text-white mb-2"
+              >
+                Grocery Store
+              </h1>
+              <div
+                class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                <div
+                  class="flex items-center gap-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-calendar h-4 w-4"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 2v4"
+                    />
+                    <path
+                      d="M16 2v4"
+                    />
+                    <rect
+                      height="18"
+                      rx="2"
+                      width="18"
+                      x="3"
+                      y="4"
+                    />
+                    <path
+                      d="M3 10h18"
+                    />
+                  </svg>
+                  <span>
+                    January 15, 2024
+                  </span>
+                </div>
+                <span
+                  data-testid="status-badge"
+                >
+                  OcrInProgress
+                </span>
+              </div>
+            </div>
+            <div
+              class="flex gap-2"
+            >
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500 dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-950 px-4 py-2 text-base  gap-2"
+                disabled=""
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-pen h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                  />
+                </svg>
+                Edit Items
+              </button>
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 px-4 py-2 text-base  "
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-trash2 lucide-trash-2 h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 11v6"
+                  />
+                  <path
+                    d="M14 11v6"
+                  />
+                  <path
+                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+                  />
+                  <path
+                    d="M3 6h18"
+                  />
+                  <path
+                    d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          data-testid="processing-indicator"
+        >
+          Status: 
+          OcrInProgress
+        </div>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-6"
+        >
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm   "
+          >
+            <img
+              alt="Receipt from Grocery Store"
+              class="w-full h-auto rounded-lg"
+              src="https://example.com/receipt1.jpg"
+            />
+          </div>
+          <div
+            class="space-y-6"
+          >
+            <div
+              data-testid="receipt-items"
+            >
+              <div>
+                Milk
+              </div>
+              <div>
+                Bread
+              </div>
+              <div>
+                Eggs
+              </div>
+            </div>
+            <div
+              data-testid="receipt-summary"
+            >
+              Subtotal: 
+              100
+              , Tax: 
+              10
+              , Tip: 
+              15.5
+              , Total: 
+              125.5
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`ReceiptDetailPage > Snapshot Tests - Processing States > matches snapshot with ParseFailed status 1`] = `
+<div>
+  <div
+    class="min-h-screen bg-gray-50 dark:bg-gray-900"
+  >
+    <header
+      class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <div
+          class="flex items-center justify-between h-16"
+        >
+          <a
+            class="flex items-center gap-2 text-xl font-bold text-primary-600 dark:text-primary-400"
+            data-discover="true"
+            href="/"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-receipt h-6 w-6"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"
+              />
+              <path
+                d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"
+              />
+              <path
+                d="M12 17.5v-11"
+              />
+            </svg>
+            <span>
+              Splittat
+            </span>
+          </a>
+          <div
+            class="hidden md:flex items-center gap-4"
+          >
+            <button
+              aria-label="Toggle dark mode"
+              class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-moon h-5 w-5 text-gray-700 dark:text-gray-300"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                />
+              </svg>
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-3 py-1.5 text-sm  "
+            >
+              Login
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 dark:bg-primary-500 dark:hover:bg-primary-600 px-3 py-1.5 text-sm  "
+            >
+              Sign Up
+            </button>
+          </div>
+          <button
+            aria-label="Toggle menu"
+            class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-menu h-6 w-6 text-gray-700 dark:text-gray-300"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 5h16"
+              />
+              <path
+                d="M4 12h16"
+              />
+              <path
+                d="M4 19h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+    >
+      <div
+        class="max-w-4xl mx-auto"
+      >
+        <div
+          class="mb-6"
+        >
+          <a
+            data-discover="true"
+            href="/receipts"
+          >
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-2 text-base  gap-2 mb-4"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-arrow-left h-4 w-4"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m12 19-7-7 7-7"
+                />
+                <path
+                  d="M19 12H5"
+                />
+              </svg>
+              Back to Receipts
+            </button>
+          </a>
+          <div
+            class="flex justify-between items-start gap-4"
+          >
+            <div>
+              <h1
+                class="text-2xl font-bold text-gray-900 dark:text-white mb-2"
+              >
+                Grocery Store
+              </h1>
+              <div
+                class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                <div
+                  class="flex items-center gap-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-calendar h-4 w-4"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 2v4"
+                    />
+                    <path
+                      d="M16 2v4"
+                    />
+                    <rect
+                      height="18"
+                      rx="2"
+                      width="18"
+                      x="3"
+                      y="4"
+                    />
+                    <path
+                      d="M3 10h18"
+                    />
+                  </svg>
+                  <span>
+                    January 15, 2024
+                  </span>
+                </div>
+                <span
+                  data-testid="status-badge"
+                >
+                  ParseFailed
+                </span>
+              </div>
+            </div>
+            <div
+              class="flex gap-2"
+            >
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500 dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-950 px-4 py-2 text-base  gap-2"
+                disabled=""
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-pen h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                  />
+                </svg>
+                Edit Items
+              </button>
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 px-4 py-2 text-base  "
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-trash2 lucide-trash-2 h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 11v6"
+                  />
+                  <path
+                    d="M14 11v6"
+                  />
+                  <path
+                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+                  />
+                  <path
+                    d="M3 6h18"
+                  />
+                  <path
+                    d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          data-testid="processing-indicator"
+        >
+          Status: 
+          ParseFailed
+           - Error: Could not parse receipt items
+        </div>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-6"
+        >
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm   "
+          >
+            <img
+              alt="Receipt from Grocery Store"
+              class="w-full h-auto rounded-lg"
+              src="https://example.com/receipt1.jpg"
+            />
+          </div>
+          <div
+            class="space-y-6"
+          >
+            <div
+              data-testid="receipt-items"
+            >
+              <div>
+                Milk
+              </div>
+              <div>
+                Bread
+              </div>
+              <div>
+                Eggs
+              </div>
+            </div>
+            <div
+              data-testid="receipt-summary"
+            >
+              Subtotal: 
+              100
+              , Tax: 
+              10
+              , Tip: 
+              15.5
+              , Total: 
+              125.5
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`ReceiptDetailPage > Snapshot Tests - Processing States > matches snapshot with Processing status 1`] = `
+<div>
+  <div
+    class="min-h-screen bg-gray-50 dark:bg-gray-900"
+  >
+    <header
+      class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <div
+          class="flex items-center justify-between h-16"
+        >
+          <a
+            class="flex items-center gap-2 text-xl font-bold text-primary-600 dark:text-primary-400"
+            data-discover="true"
+            href="/"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-receipt h-6 w-6"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"
+              />
+              <path
+                d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"
+              />
+              <path
+                d="M12 17.5v-11"
+              />
+            </svg>
+            <span>
+              Splittat
+            </span>
+          </a>
+          <div
+            class="hidden md:flex items-center gap-4"
+          >
+            <button
+              aria-label="Toggle dark mode"
+              class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-moon h-5 w-5 text-gray-700 dark:text-gray-300"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                />
+              </svg>
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-3 py-1.5 text-sm  "
+            >
+              Login
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 dark:bg-primary-500 dark:hover:bg-primary-600 px-3 py-1.5 text-sm  "
+            >
+              Sign Up
+            </button>
+          </div>
+          <button
+            aria-label="Toggle menu"
+            class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-menu h-6 w-6 text-gray-700 dark:text-gray-300"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 5h16"
+              />
+              <path
+                d="M4 12h16"
+              />
+              <path
+                d="M4 19h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+    >
+      <div
+        class="max-w-4xl mx-auto"
+      >
+        <div
+          class="mb-6"
+        >
+          <a
+            data-discover="true"
+            href="/receipts"
+          >
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-2 text-base  gap-2 mb-4"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-arrow-left h-4 w-4"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m12 19-7-7 7-7"
+                />
+                <path
+                  d="M19 12H5"
+                />
+              </svg>
+              Back to Receipts
+            </button>
+          </a>
+          <div
+            class="flex justify-between items-start gap-4"
+          >
+            <div>
+              <h1
+                class="text-2xl font-bold text-gray-900 dark:text-white mb-2"
+              >
+                Grocery Store
+              </h1>
+              <div
+                class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                <div
+                  class="flex items-center gap-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-calendar h-4 w-4"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 2v4"
+                    />
+                    <path
+                      d="M16 2v4"
+                    />
+                    <rect
+                      height="18"
+                      rx="2"
+                      width="18"
+                      x="3"
+                      y="4"
+                    />
+                    <path
+                      d="M3 10h18"
+                    />
+                  </svg>
+                  <span>
+                    January 15, 2024
+                  </span>
+                </div>
+                <span
+                  data-testid="status-badge"
+                >
+                  Processing
+                </span>
+              </div>
+            </div>
+            <div
+              class="flex gap-2"
+            >
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500 dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-950 px-4 py-2 text-base  gap-2"
+                disabled=""
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-pen h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                  />
+                </svg>
+                Edit Items
+              </button>
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 px-4 py-2 text-base  "
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-trash2 lucide-trash-2 h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 11v6"
+                  />
+                  <path
+                    d="M14 11v6"
+                  />
+                  <path
+                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+                  />
+                  <path
+                    d="M3 6h18"
+                  />
+                  <path
+                    d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          data-testid="processing-indicator"
+        >
+          Status: 
+          Processing
+        </div>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-6"
+        >
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm   "
+          >
+            <img
+              alt="Receipt from Grocery Store"
+              class="w-full h-auto rounded-lg"
+              src="https://example.com/receipt1.jpg"
+            />
+          </div>
+          <div
+            class="space-y-6"
+          >
+            <div
+              data-testid="receipt-items"
+            >
+              <div>
+                Milk
+              </div>
+              <div>
+                Bread
+              </div>
+              <div>
+                Eggs
+              </div>
+            </div>
+            <div
+              data-testid="receipt-summary"
+            >
+              Subtotal: 
+              100
+              , Tax: 
+              10
+              , Tip: 
+              15.5
+              , Total: 
+              125.5
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`ReceiptDetailPage > Snapshot Tests - Processing States > matches snapshot with Ready status and low confidence 1`] = `
+<div>
+  <div
+    class="min-h-screen bg-gray-50 dark:bg-gray-900"
+  >
+    <header
+      class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <div
+          class="flex items-center justify-between h-16"
+        >
+          <a
+            class="flex items-center gap-2 text-xl font-bold text-primary-600 dark:text-primary-400"
+            data-discover="true"
+            href="/"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-receipt h-6 w-6"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"
+              />
+              <path
+                d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"
+              />
+              <path
+                d="M12 17.5v-11"
+              />
+            </svg>
+            <span>
+              Splittat
+            </span>
+          </a>
+          <div
+            class="hidden md:flex items-center gap-4"
+          >
+            <button
+              aria-label="Toggle dark mode"
+              class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-moon h-5 w-5 text-gray-700 dark:text-gray-300"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                />
+              </svg>
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-3 py-1.5 text-sm  "
+            >
+              Login
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 dark:bg-primary-500 dark:hover:bg-primary-600 px-3 py-1.5 text-sm  "
+            >
+              Sign Up
+            </button>
+          </div>
+          <button
+            aria-label="Toggle menu"
+            class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-menu h-6 w-6 text-gray-700 dark:text-gray-300"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 5h16"
+              />
+              <path
+                d="M4 12h16"
+              />
+              <path
+                d="M4 19h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+    >
+      <div
+        class="max-w-4xl mx-auto"
+      >
+        <div
+          class="mb-6"
+        >
+          <a
+            data-discover="true"
+            href="/receipts"
+          >
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-2 text-base  gap-2 mb-4"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-arrow-left h-4 w-4"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m12 19-7-7 7-7"
+                />
+                <path
+                  d="M19 12H5"
+                />
+              </svg>
+              Back to Receipts
+            </button>
+          </a>
+          <div
+            class="flex justify-between items-start gap-4"
+          >
+            <div>
+              <h1
+                class="text-2xl font-bold text-gray-900 dark:text-white mb-2"
+              >
+                Grocery Store
+              </h1>
+              <div
+                class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                <div
+                  class="flex items-center gap-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-calendar h-4 w-4"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 2v4"
+                    />
+                    <path
+                      d="M16 2v4"
+                    />
+                    <rect
+                      height="18"
+                      rx="2"
+                      width="18"
+                      x="3"
+                      y="4"
+                    />
+                    <path
+                      d="M3 10h18"
+                    />
+                  </svg>
+                  <span>
+                    January 15, 2024
+                  </span>
+                </div>
+                <span
+                  data-testid="status-badge"
+                >
+                  Ready
+                </span>
+              </div>
+            </div>
+            <div
+              class="flex gap-2"
+            >
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500 dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-950 px-4 py-2 text-base  gap-2"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-pen h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                  />
+                </svg>
+                Edit Items
+              </button>
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 px-4 py-2 text-base  "
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-trash2 lucide-trash-2 h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 11v6"
+                  />
+                  <path
+                    d="M14 11v6"
+                  />
+                  <path
+                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+                  />
+                  <path
+                    d="M3 6h18"
+                  />
+                  <path
+                    d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-6"
+        >
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm   "
+          >
+            <img
+              alt="Receipt from Grocery Store"
+              class="w-full h-auto rounded-lg"
+              src="https://example.com/receipt1.jpg"
+            />
+          </div>
+          <div
+            class="space-y-6"
+          >
+            <div
+              data-testid="processing-indicator"
+            >
+              Status: 
+              Ready
+               - Confidence: 0.65
+            </div>
+            <div
+              data-testid="receipt-items"
+            >
+              <div>
+                Milk
+              </div>
+              <div>
+                Bread
+              </div>
+              <div>
+                Eggs
+              </div>
+            </div>
+            <div
+              data-testid="receipt-summary"
+            >
+              Subtotal: 
+              100
+              , Tax: 
+              10
+              , Tip: 
+              15.5
+              , Total: 
+              125.5
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`ReceiptDetailPage > Snapshot Tests - Processing States > matches snapshot with Uploaded status 1`] = `
+<div>
+  <div
+    class="min-h-screen bg-gray-50 dark:bg-gray-900"
+  >
+    <header
+      class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <div
+          class="flex items-center justify-between h-16"
+        >
+          <a
+            class="flex items-center gap-2 text-xl font-bold text-primary-600 dark:text-primary-400"
+            data-discover="true"
+            href="/"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-receipt h-6 w-6"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"
+              />
+              <path
+                d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"
+              />
+              <path
+                d="M12 17.5v-11"
+              />
+            </svg>
+            <span>
+              Splittat
+            </span>
+          </a>
+          <div
+            class="hidden md:flex items-center gap-4"
+          >
+            <button
+              aria-label="Toggle dark mode"
+              class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-moon h-5 w-5 text-gray-700 dark:text-gray-300"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                />
+              </svg>
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-3 py-1.5 text-sm  "
+            >
+              Login
+            </button>
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 dark:bg-primary-500 dark:hover:bg-primary-600 px-3 py-1.5 text-sm  "
+            >
+              Sign Up
+            </button>
+          </div>
+          <button
+            aria-label="Toggle menu"
+            class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-menu h-6 w-6 text-gray-700 dark:text-gray-300"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 5h16"
+              />
+              <path
+                d="M4 12h16"
+              />
+              <path
+                d="M4 19h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+    >
+      <div
+        class="max-w-4xl mx-auto"
+      >
+        <div
+          class="mb-6"
+        >
+          <a
+            data-discover="true"
+            href="/receipts"
+          >
+            <button
+              class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 px-4 py-2 text-base  gap-2 mb-4"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-arrow-left h-4 w-4"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m12 19-7-7 7-7"
+                />
+                <path
+                  d="M19 12H5"
+                />
+              </svg>
+              Back to Receipts
+            </button>
+          </a>
+          <div
+            class="flex justify-between items-start gap-4"
+          >
+            <div>
+              <h1
+                class="text-2xl font-bold text-gray-900 dark:text-white mb-2"
+              >
+                Grocery Store
+              </h1>
+              <div
+                class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                <div
+                  class="flex items-center gap-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-calendar h-4 w-4"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 2v4"
+                    />
+                    <path
+                      d="M16 2v4"
+                    />
+                    <rect
+                      height="18"
+                      rx="2"
+                      width="18"
+                      x="3"
+                      y="4"
+                    />
+                    <path
+                      d="M3 10h18"
+                    />
+                  </svg>
+                  <span>
+                    January 15, 2024
+                  </span>
+                </div>
+                <span
+                  data-testid="status-badge"
+                >
+                  Uploaded
+                </span>
+              </div>
+            </div>
+            <div
+              class="flex gap-2"
+            >
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500 dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-950 px-4 py-2 text-base  gap-2"
+                disabled=""
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-pen h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                  />
+                </svg>
+                Edit Items
+              </button>
+              <button
+                class="inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 px-4 py-2 text-base  "
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-trash2 lucide-trash-2 h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 11v6"
+                  />
+                  <path
+                    d="M14 11v6"
+                  />
+                  <path
+                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+                  />
+                  <path
+                    d="M3 6h18"
+                  />
+                  <path
+                    d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          data-testid="processing-indicator"
+        >
+          Status: 
+          Uploaded
+        </div>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-6"
+        >
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm   "
+          >
+            <img
+              alt="Receipt from Grocery Store"
+              class="w-full h-auto rounded-lg"
+              src="https://example.com/receipt1.jpg"
+            />
+          </div>
+          <div
+            class="space-y-6"
+          >
+            <div
+              data-testid="receipt-items"
+            >
+              <div>
+                Milk
+              </div>
+              <div>
+                Bread
+              </div>
+              <div>
+                Eggs
+              </div>
+            </div>
+            <div
+              data-testid="receipt-summary"
+            >
+              Subtotal: 
+              100
+              , Tax: 
+              10
+              , Tip: 
+              15.5
+              , Total: 
+              125.5
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+`;
+
 exports[`ReceiptDetailPage > Snapshot Tests - With Data > matches snapshot on desktop (1280px) 1`] = `
 <div>
   <div

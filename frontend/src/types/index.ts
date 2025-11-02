@@ -27,8 +27,11 @@ export interface AuthResponse {
 
 // Receipt types
 export const ReceiptStatus = {
-  Processing: "Processing",
+  Uploaded: "Uploaded",
+  OcrInProgress: "OcrInProgress",
+  OcrCompleted: "OcrCompleted",
   Ready: "Ready",
+  ParseFailed: "ParseFailed",
   Failed: "Failed",
 } as const;
 
@@ -39,6 +42,7 @@ export interface ReceiptItem {
   name: string;
   price: number;
   quantity?: number;
+  lineNumber?: number; // NEW: Line number on receipt for ordering
 }
 
 export interface Receipt {
@@ -55,6 +59,9 @@ export interface Receipt {
   items: ReceiptItem[];
   createdAt: string;
   updatedAt: string;
+  ocrConfidence?: number; // 0-1 (0.0 to 1.0)
+  processedAt?: string;
+  errorMessage?: string;
 }
 
 export interface ReceiptListItem {
@@ -69,6 +76,14 @@ export interface ReceiptListItem {
 
 export interface UpdateReceiptItemsRequest {
   items: Omit<ReceiptItem, "id">[];
+}
+
+export interface OcrDebugInfo {
+  receiptId: string;
+  status: ReceiptStatus;
+  processedAt?: string;
+  confidence?: number;
+  rawOcrResult: unknown;
 }
 
 // API Error type

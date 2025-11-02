@@ -1,6 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { receiptsApi } from "@/api/receipts";
 import { useNavigate } from "react-router-dom";
+import { useReceiptHub } from "./useReceiptHub";
+import { useReceiptPolling } from "./useReceiptPolling";
 
 export const useReceipts = () => {
   const queryClient = useQueryClient();
@@ -65,6 +67,12 @@ export const useReceipt = (id: string) => {
     queryFn: () => receiptsApi.getById(id),
     enabled: !!id,
   });
+
+  // Enable SignalR for real-time updates
+  useReceiptHub(!!id);
+
+  // Fallback polling if receipt is processing
+  useReceiptPolling(id, receipt?.status, !!id);
 
   // Update receipt items mutation
   const updateItemsMutation = useMutation({

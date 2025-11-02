@@ -17,4 +17,9 @@ public class ReceiptResponse
     public ReceiptStatus Status { get; set; }
     public DateTime CreatedAt { get; set; }
     public List<ReceiptItemResponse> Items { get; set; } = new();
+
+    // OCR processing tracking (optional - for debugging/monitoring)
+    public double? OcrConfidence { get; set; }
+    public DateTime? ProcessedAt { get; set; }
+    public string? ErrorMessage { get; set; }
 }

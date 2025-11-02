@@ -230,4 +230,95 @@ public class FileStorageService
             return false;
         }
     }
+
+    /// <summary>
+    /// Saves OCR result as a temporary JSON file for troubleshooting (kept for 30 days)
+    /// </summary>
+    public async Task<string> SaveOcrResultAsync(Guid receiptId, string jsonContent)
+    {
+        try
+        {
+            var uploadsPath = Path.Combine(_environment.WebRootPath, "uploads");
+            Directory.CreateDirectory(uploadsPath);
+
+            var fileName = $"{receiptId}_ocr.json";
+            var filePath = Path.Combine(uploadsPath, fileName);
+
+            await File.WriteAllTextAsync(filePath, jsonContent);
+            _logger.LogInformation("OCR result saved: {FileName} ({Size} bytes)", fileName, jsonContent.Length);
+
+            return $"/uploads/{fileName}";
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error saving OCR result for receipt {ReceiptId}", receiptId);
+            throw;
+        }
+    }
+
+    /// <summary>
+    /// Retrieves OCR result JSON file if it exists
+    /// </summary>
+    public async Task<string?> GetOcrResultAsync(Guid receiptId)
+    {
+        try
+        {
+            var fileName = $"{receiptId}_ocr.json";
+            var filePath = Path.Combine(_environment.WebRootPath, "uploads", fileName);
+
+            if (!File.Exists(filePath))
+            {
+                _logger.LogWarning("OCR result file not found for receipt {ReceiptId}", receiptId);
+                return null;
+            }
+
+            var content = await File.ReadAllTextAsync(filePath);
+            _logger.LogInformation("OCR result retrieved for receipt {ReceiptId} ({Size} bytes)", receiptId, content.Length);
+            return content;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error retrieving OCR result for receipt {ReceiptId}", receiptId);
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Deletes OCR result files older than the specified number of days
+    /// </summary>
+    public async Task<int> CleanupOldOcrFilesAsync(int olderThanDays = 30)
+    {
+        try
+        {
+            var uploadsPath = Path.Combine(_environment.WebRootPath, "uploads");
+            if (!Directory.Exists(uploadsPath))
+            {
+                return 0;
+            }
+
+            var cutoffDate = DateTime.UtcNow.AddDays(-olderThanDays);
+            var ocrFiles = Directory.GetFiles(uploadsPath, "*_ocr.json");
+            var deletedCount = 0;
+
+            foreach (var file in ocrFiles)
+            {
+                var fileInfo = new FileInfo(file);
+                if (fileInfo.LastWriteTimeUtc < cutoffDate)
+                {
+                    await Task.Run(() => File.Delete(file));
+                    deletedCount++;
+                    _logger.LogInformation("Deleted old OCR file: {FileName} (Last modified: {LastModified})",
+                        fileInfo.Name, fileInfo.LastWriteTimeUtc);
+                }
+            }
+
+            _logger.LogInformation("Cleanup completed: Deleted {Count} OCR files older than {Days} days", deletedCount, olderThanDays);
+            return deletedCount;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error during OCR file cleanup");
+            return 0;
+        }
+    }
 }
