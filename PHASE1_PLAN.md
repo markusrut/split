@@ -7,7 +7,7 @@ Phase 1 focuses on completing the backend API infrastructure with authentication
 **Goal**: Working backend API where users can register, login, upload receipts, and view OCR-extracted items
 
 **Last Updated**: 2025-11-02
-**Current Status**: ~35% Complete - Authentication fully implemented with tests, infrastructure setup done
+**Current Status**: ~50% Complete - Authentication, infrastructure, and file storage fully implemented with tests
 
 ---
 
@@ -27,9 +27,10 @@ Phase 1 focuses on completing the backend API infrastructure with authentication
 
 ### ✅ Completed Phases
 - Phase A: Infrastructure & Logging
+- Phase B: File Upload & Storage
 
 ### 🔨 In Progress
-- Phase B: File Upload & Storage
+- None
 
 ### ⏳ Pending
 - Phase C: OCR Integration
@@ -84,38 +85,45 @@ Phase 1 focuses on completing the backend API infrastructure with authentication
 
 ---
 
-## Phase B: File Upload & Storage (2-3 hours)
+## Phase B: File Upload & Storage ✅ COMPLETED
 **Priority: High** - Blocks receipt upload functionality
+**Completed: 2025-11-02**
 
-### B.1 File Storage Service
-- [ ] Create `Services/FileStorageService.cs`:
+### B.1 File Storage Service ✅
+- [x] Create `Services/FileStorageService.cs`:
   - `Task<string> SaveFileAsync(IFormFile file, Guid userId)` - Returns file path/URL
-  - `Task DeleteFileAsync(string filePath)` - Cleanup uploaded file
-  - `bool ValidateFile(IFormFile file)` - Validation helper
-- [ ] File validation logic:
+  - `Task<bool> DeleteFileAsync(string filePath)` - Cleanup uploaded file
+  - `bool ValidateFile(IFormFile file, out string? errorMessage)` - Validation helper
+- [x] File validation logic:
   - Max file size: 10MB
   - Allowed types: image/jpeg, image/png, application/pdf
   - Check file exists and is readable
-- [ ] Unique filename generation using Guid
-- [ ] Create `wwwroot/uploads/` directory structure
+- [x] Unique filename generation using Guid
+- [x] Create `wwwroot/uploads/` directory structure
 
-### B.2 Image Processing with ImageSharp
-- [ ] Add image optimization in FileStorageService:
+### B.2 Image Processing with ImageSharp ✅
+- [x] Add image optimization in FileStorageService:
   - Resize images if width > 2000px (maintain aspect ratio)
   - Compress JPEG quality to 85
   - Convert PNG to JPEG for consistency
   - Skip processing for PDF files
-- [ ] Test with various image sizes and formats
+- [x] Test with comprehensive unit tests (11 tests)
 
-### B.3 Static File Serving
-- [ ] Configure static files middleware in `Program.cs`:
+### B.3 Static File Serving ✅
+- [x] Configure static files middleware in `Program.cs`:
   - `app.UseStaticFiles()` for wwwroot
-  - Map `/uploads` to `wwwroot/uploads/`
-- [ ] Test file access via HTTP (e.g., http://localhost:5000/uploads/filename.jpg)
+  - Static files automatically serve from `/uploads` path
+- [x] Test file access via HTTP
 
-### B.4 Register Service
-- [ ] Add FileStorageService to DI container in `Program.cs`
-- [ ] Create interface `IFileStorageService` for testability (optional for MVP)
+### B.4 Register Service ✅
+- [x] Add FileStorageService to DI container in `Program.cs`
+
+**Key Achievements:**
+- Complete file upload and storage system with validation
+- Image optimization using ImageSharp (resize, compress, format conversion)
+- Static file serving configured for uploaded receipts
+- Comprehensive test suite (11 passing tests)
+- All 23 tests passing (12 auth + 11 file storage)
 
 ---
 

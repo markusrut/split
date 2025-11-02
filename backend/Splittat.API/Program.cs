@@ -99,6 +99,7 @@ builder.Services.AddAuthorization();
 builder.Services.AddScoped<JwtHelper>();
 builder.Services.AddScoped<PasswordHasher>();
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<FileStorageService>();
 
 // Add CORS for frontend
 builder.Services.AddCors(options =>
@@ -130,6 +131,9 @@ app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseCors();
 app.UseHttpsRedirection();
+
+// Serve static files from wwwroot (for uploaded receipts)
+app.UseStaticFiles();
 
 // Add Serilog request logging
 app.UseSerilogRequestLogging(options =>
@@ -187,4 +191,4 @@ finally
     Log.CloseAndFlush();
 }
 
-public partial class Program { }
+public abstract partial class Program { }

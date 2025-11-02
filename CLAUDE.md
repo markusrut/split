@@ -403,6 +403,7 @@ VITE_API_BASE_URL=https://localhost:5001/api
 - **Decimal Precision**: Use `decimal` type for money (never `float` or `double`)
 - **Timezones**: Store UTC in database, convert to local time in UI
 - **File Upload Limits**: Configure max request body size for large images
+- **Nullable Reference Types**: ALWAYS consider if values can be null and mark with `?` appropriately (see [backend/NULLABLE_GUIDELINES.md](backend/NULLABLE_GUIDELINES.md) for comprehensive rules)
 
 ## Project Goals
 
