@@ -72,6 +72,7 @@ const setViewport = (width: number, height: number) => {
 // Mock receipt data
 const mockReceipt: Receipt = {
   id: "1",
+  userId: "user-123",
   merchantName: "Grocery Store",
   date: "2024-01-15T10:30:00Z",
   subtotal: 100.0,
@@ -85,6 +86,8 @@ const mockReceipt: Receipt = {
     { id: "2", name: "Bread", price: 3.49, quantity: 1 },
     { id: "3", name: "Eggs", price: 5.99, quantity: 1 },
   ],
+  createdAt: "2024-01-15T10:30:00Z",
+  updatedAt: "2024-01-15T10:30:00Z",
 };
 
 describe("ReceiptDetailPage", () => {

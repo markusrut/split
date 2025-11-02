@@ -29,14 +29,17 @@ describe("LoginPage", () => {
 
     // Mock useAuth hook with default values
     vi.mocked(useAuthModule.useAuth).mockReturnValue({
-      login: vi.fn(),
-      register: vi.fn(),
-      logout: vi.fn(),
-      loginLoading: false,
-      registerLoading: false,
-      loginError: null,
-      registerError: null,
+      user: null,
       isAuthenticated: false,
+      login: vi.fn(),
+      loginAsync: vi.fn(),
+      loginLoading: false,
+      loginError: null,
+      register: vi.fn(),
+      registerAsync: vi.fn(),
+      registerLoading: false,
+      registerError: null,
+      logout: vi.fn(),
     });
   });
 
@@ -61,14 +64,17 @@ describe("LoginPage", () => {
 
     it("matches snapshot with loading state", () => {
       vi.mocked(useAuthModule.useAuth).mockReturnValue({
-        login: vi.fn(),
-        register: vi.fn(),
-        logout: vi.fn(),
-        loginLoading: true,
-        registerLoading: false,
-        loginError: null,
-        registerError: null,
+        user: null,
         isAuthenticated: false,
+        login: vi.fn(),
+        loginAsync: vi.fn(),
+        loginLoading: true,
+        loginError: null,
+        register: vi.fn(),
+        registerAsync: vi.fn(),
+        registerLoading: false,
+        registerError: null,
+        logout: vi.fn(),
       });
 
       const { container } = render(<LoginPage />);
@@ -77,14 +83,17 @@ describe("LoginPage", () => {
 
     it("matches snapshot with error state", () => {
       vi.mocked(useAuthModule.useAuth).mockReturnValue({
-        login: vi.fn(),
-        register: vi.fn(),
-        logout: vi.fn(),
-        loginLoading: false,
-        registerLoading: false,
-        loginError: { message: "Invalid email or password" },
-        registerError: null,
+        user: null,
         isAuthenticated: false,
+        login: vi.fn(),
+        loginAsync: vi.fn(),
+        loginLoading: false,
+        loginError: new Error("Invalid email or password"),
+        register: vi.fn(),
+        registerAsync: vi.fn(),
+        registerLoading: false,
+        registerError: null,
+        logout: vi.fn(),
       });
 
       const { container } = render(<LoginPage />);
