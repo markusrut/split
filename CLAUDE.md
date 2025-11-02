@@ -7,19 +7,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 A mobile-first PWA for scanning receipts, extracting items via OCR, and splitting costs among multiple people or groups.
 
 **Stack:**
-- Frontend: React 19 + TypeScript + Vite + TailwindCSS
+- Frontend: React 19.1 + TypeScript 5.9 + Vite 7.1 + TailwindCSS 4.1
 - Backend: .NET 9 Minimal API + Entity Framework Core + PostgreSQL
 - OCR: Google Vision API or AWS Textract
 - Storage: Azure Blob/S3/Local for receipt images
+
+**Installed Frontend Dependencies:**
+- **Core:** React 19.1.1, React DOM 19.1.1, React Router DOM 7.9.5
+- **State Management:** Zustand 5.0.8, TanStack Query 5.90.6
+- **HTTP Client:** Axios 1.13.1
+- **Forms:** React Hook Form 7.66.0, Zod 4.1.12, @hookform/resolvers 5.2.2
+- **Styling:** TailwindCSS 4.1.16 (with @tailwindcss/vite plugin)
+- **Icons:** Lucide React 0.552.0
+- **Build Tools:** Vite 7.1.7, TypeScript 5.9.3, SWC (via @vitejs/plugin-react-swc 4.1.0)
+
+**Package Manager:** Yarn (v4.10.3+)
 
 ## Development Commands
 
 ### Frontend (from `frontend/` directory)
 ```bash
-npm run dev          # Start dev server (Vite) on localhost:5173
-npm run build        # Build for production (TypeScript + Vite)
-npm run lint         # Run ESLint
-npm run preview      # Preview production build
+yarn dev             # Start dev server (Vite) on localhost:5173
+yarn build           # Build for production (TypeScript + Vite)
+yarn lint            # Run ESLint
+yarn preview         # Preview production build
 ```
 
 ### Backend (from `backend/Splittat.API/` directory)
@@ -67,19 +78,46 @@ The backend follows a lightweight service-oriented architecture using .NET Minim
 
 ### Frontend Architecture (React 19 + TypeScript)
 
+**Current Implementation Status (as of 2025-11-02):**
+✅ Project setup complete with Vite + React 19 + TypeScript 5.9
+✅ TailwindCSS 4.1 configured with custom theme colors (primary/secondary)
+✅ Absolute imports configured (`@/` alias points to `src/`)
+✅ Axios client with JWT interceptor configured
+✅ TanStack Query setup with QueryClientProvider
+✅ Zustand auth store with localStorage persistence
+✅ React Router 7 with protected routes (ProtectedRoute component)
+✅ API functions created (auth.ts, receipts.ts)
+✅ TypeScript types defined for User, Auth, Receipt entities
+✅ Custom useAuth hook wrapping auth mutations
+✅ Placeholder pages created (Home, Login, Register, Receipts, ReceiptDetail)
+⏳ UI components (Button, Input, Card, Loading) - pending
+⏳ Auth forms with validation - pending
+⏳ Receipt upload/list/detail components - pending
+⏳ Layout components (Header, Layout) - pending
+
 **Structure:**
-- `src/pages/` - Route-level components (HomePage, LoginPage, ReceiptsPage, etc.)
+- `src/pages/` - Route-level components (HomePage, LoginPage, RegisterPage, ReceiptsPage, ReceiptDetailPage)
 - `src/components/` - Reusable components
-  - `ui/` - Generic UI components (Button, Input, Card, Loading)
-  - `layout/` - Layout components (Header, Layout)
-  - `receipt/` - Receipt-specific components (ReceiptScanner, ReceiptViewer, ItemAssignment)
-- `src/api/` - API client configuration and endpoint functions
-  - `client.ts` - Axios instance with interceptors for JWT
-  - `auth.ts`, `receipts.ts`, `groups.ts` - Typed API functions
-- `src/hooks/` - Custom React hooks (useAuth, useReceipts, useCamera)
-- `src/store/` - Zustand stores for client state (authStore)
-- `src/types/` - TypeScript type definitions
-- `src/utils/` - Utility functions (splitCalculator, formatters)
+  - `ui/` - Generic UI components (Button, Input, Card, Loading) - **to be created**
+  - `layout/` - Layout components (Header, Layout) - **to be created**
+  - `receipt/` - Receipt-specific components (ReceiptScanner, ReceiptViewer, ItemAssignment) - **to be created**
+  - `ProtectedRoute.tsx` - Route guard for authenticated routes ✅
+- `src/api/` - API client configuration and endpoint functions ✅
+  - `client.ts` - Axios instance with JWT interceptor (401 auto-redirect)
+  - `queryClient.ts` - TanStack Query configuration
+  - `auth.ts` - Auth API functions (login, register)
+  - `receipts.ts` - Receipt API functions (upload, getAll, getById, updateItems, delete)
+- `src/hooks/` - Custom React hooks
+  - `useAuth.ts` - Auth hook with login/register mutations and logout ✅
+- `src/store/` - Zustand stores
+  - `authStore.ts` - Auth state with localStorage persistence ✅
+- `src/types/` - TypeScript type definitions ✅
+  - User, LoginRequest, RegisterRequest, AuthResponse
+  - Receipt, ReceiptItem, ReceiptStatus, ReceiptListItem
+  - ApiError
+- `src/utils/` - Utility functions (splitCalculator, formatters) - **to be created**
+- `src/app.css` - TailwindCSS 4.1 theme configuration with custom colors
+- `vite.config.ts` - Vite configuration with `@/` path alias and Tailwind plugin
 
 **State Management Strategy:**
 - **TanStack Query**: Server state (API data, caching, refetching)
@@ -202,6 +240,46 @@ Test edge cases:
 See [PHASE1_TODOS.md](PHASE1_TODOS.md) for detailed Phase 1 task breakdown.
 
 ## Configuration & Environment
+
+### Frontend Configuration
+
+#### TailwindCSS 4.1 Setup
+The project uses **TailwindCSS v4** (latest) with the new `@theme` directive approach:
+
+**Configuration in `src/app.css`:**
+```css
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #f0f9ff;
+  --color-primary-500: #0ea5e9;  /* Main brand color */
+  --color-primary-600: #0284c7;  /* Hover state */
+  /* ... full color scale defined */
+
+  --color-secondary-50: #faf5ff;
+  --color-secondary-500: #a855f7;
+  /* ... full color scale defined */
+}
+```
+
+**Key differences from Tailwind v3:**
+- No `tailwind.config.js` file (configuration moved to CSS)
+- Use `@theme` directive in CSS instead of JS config
+- Vite plugin: `@tailwindcss/vite` instead of PostCSS setup
+- Dark mode still works with `class` strategy via theme variables
+
+**Usage in components:**
+```tsx
+<div className="bg-primary-500 text-white">
+  <h1 className="text-primary-600 dark:text-primary-400">Hello</h1>
+</div>
+```
+
+**Changing theme colors:** Simply update the CSS variables in `src/app.css` - changes apply instantly across the entire app.
+
+#### TypeScript Path Aliases
+- `@/` → `src/` (configured in `tsconfig.app.json` and `vite.config.ts`)
+- Example: `import { Button } from '@/components/ui/Button'`
 
 ### Backend Environment Variables
 In `appsettings.json` or `appsettings.Development.json`:
