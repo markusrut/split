@@ -100,6 +100,7 @@ builder.Services.AddScoped<JwtHelper>();
 builder.Services.AddScoped<PasswordHasher>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<FileStorageService>();
+builder.Services.AddScoped<IOcrService, OcrService>();
 
 // Add CORS for frontend
 builder.Services.AddCors(options =>
