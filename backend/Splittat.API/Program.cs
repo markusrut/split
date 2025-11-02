@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Split.API.Data;
+using Splittat.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

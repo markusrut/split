@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Split.API.Data.Entities;
+using Splittat.API.Data.Entities;
 
-namespace Split.API.Data;
+namespace Splittat.API.Data;
 
 public class AppDbContext : DbContext
 {

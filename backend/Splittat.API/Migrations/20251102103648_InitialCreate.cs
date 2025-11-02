@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Split.API.Migrations
+namespace Splittat.API.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

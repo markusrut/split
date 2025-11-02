@@ -1,9 +1,9 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: split-postgres
+    container_name: splittat-postgres
     environment:
-      POSTGRES_DB: split
+      POSTGRES_DB: splittat
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:

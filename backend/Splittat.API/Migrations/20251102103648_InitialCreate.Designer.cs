@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Split.API.Data;
+using Splittat.API.Data;
 
 #nullable disable
 
-namespace Split.API.Migrations
+namespace Splittat.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251102102322_InitialCreate")]
+    [Migration("20251102103648_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace Split.API.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Split.API.Data.Entities.Group", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.Group", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,7 +51,7 @@ namespace Split.API.Migrations
                     b.ToTable("Groups");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.GroupMember", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.GroupMember", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -82,7 +82,7 @@ namespace Split.API.Migrations
                     b.ToTable("GroupMembers");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.ItemAssignment", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.ItemAssignment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -116,7 +116,7 @@ namespace Split.API.Migrations
                     b.ToTable("ItemAssignments");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.Receipt", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.Receipt", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -165,7 +165,7 @@ namespace Split.API.Migrations
                     b.ToTable("Receipts");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.ReceiptItem", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.ReceiptItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -198,7 +198,7 @@ namespace Split.API.Migrations
                     b.ToTable("ReceiptItems");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.Split", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.Split", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -233,7 +233,7 @@ namespace Split.API.Migrations
                     b.ToTable("Splits");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.User", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -271,9 +271,9 @@ namespace Split.API.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.Group", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.Group", b =>
                 {
-                    b.HasOne("Split.API.Data.Entities.User", "Creator")
+                    b.HasOne("Splittat.API.Data.Entities.User", "Creator")
                         .WithMany("CreatedGroups")
                         .HasForeignKey("CreatedBy")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -282,15 +282,15 @@ namespace Split.API.Migrations
                     b.Navigation("Creator");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.GroupMember", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.GroupMember", b =>
                 {
-                    b.HasOne("Split.API.Data.Entities.Group", "Group")
+                    b.HasOne("Splittat.API.Data.Entities.Group", "Group")
                         .WithMany("Members")
                         .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Split.API.Data.Entities.User", "User")
+                    b.HasOne("Splittat.API.Data.Entities.User", "User")
                         .WithMany("GroupMemberships")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -301,21 +301,21 @@ namespace Split.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.ItemAssignment", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.ItemAssignment", b =>
                 {
-                    b.HasOne("Split.API.Data.Entities.ReceiptItem", "ReceiptItem")
+                    b.HasOne("Splittat.API.Data.Entities.ReceiptItem", "ReceiptItem")
                         .WithMany()
                         .HasForeignKey("ReceiptItemId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Split.API.Data.Entities.Split", "Split")
+                    b.HasOne("Splittat.API.Data.Entities.Split", "Split")
                         .WithMany("ItemAssignments")
                         .HasForeignKey("SplitId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Split.API.Data.Entities.User", "User")
+                    b.HasOne("Splittat.API.Data.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -328,9 +328,9 @@ namespace Split.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.Receipt", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.Receipt", b =>
                 {
-                    b.HasOne("Split.API.Data.Entities.User", "User")
+                    b.HasOne("Splittat.API.Data.Entities.User", "User")
                         .WithMany("Receipts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -339,9 +339,9 @@ namespace Split.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.ReceiptItem", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.ReceiptItem", b =>
                 {
-                    b.HasOne("Split.API.Data.Entities.Receipt", "Receipt")
+                    b.HasOne("Splittat.API.Data.Entities.Receipt", "Receipt")
                         .WithMany("Items")
                         .HasForeignKey("ReceiptId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -350,20 +350,20 @@ namespace Split.API.Migrations
                     b.Navigation("Receipt");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.Split", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.Split", b =>
                 {
-                    b.HasOne("Split.API.Data.Entities.User", "Creator")
+                    b.HasOne("Splittat.API.Data.Entities.User", "Creator")
                         .WithMany()
                         .HasForeignKey("CreatedBy")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Split.API.Data.Entities.Group", "Group")
+                    b.HasOne("Splittat.API.Data.Entities.Group", "Group")
                         .WithMany()
                         .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("Split.API.Data.Entities.Receipt", "Receipt")
+                    b.HasOne("Splittat.API.Data.Entities.Receipt", "Receipt")
                         .WithMany("Splits")
                         .HasForeignKey("ReceiptId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -376,24 +376,24 @@ namespace Split.API.Migrations
                     b.Navigation("Receipt");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.Group", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.Group", b =>
                 {
                     b.Navigation("Members");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.Receipt", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.Receipt", b =>
                 {
                     b.Navigation("Items");
 
                     b.Navigation("Splits");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.Split", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.Split", b =>
                 {
                     b.Navigation("ItemAssignments");
                 });
 
-            modelBuilder.Entity("Split.API.Data.Entities.User", b =>
+            modelBuilder.Entity("Splittat.API.Data.Entities.User", b =>
                 {
                     b.Navigation("CreatedGroups");
 

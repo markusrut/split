@@ -22,7 +22,7 @@ npm run lint         # Run ESLint
 npm run preview      # Preview production build
 ```
 
-### Backend (from `backend/Split.API/` directory)
+### Backend (from `backend/Splittat.API/` directory)
 ```bash
 dotnet run                                    # Run API (default: https://localhost:5001)
 dotnet watch run                              # Run with hot reload
@@ -37,7 +37,7 @@ dotnet test                                   # Run unit tests (when available)
 # From project root
 docker-compose up -d                          # Start PostgreSQL container
 
-# From backend/Split.API/
+# From backend/Splittat.API/
 dotnet ef migrations add InitialCreate        # First migration
 dotnet ef database update                     # Apply to database
 ```
@@ -208,12 +208,12 @@ In `appsettings.json` or `appsettings.Development.json`:
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Host=localhost;Database=split;Username=postgres;Password=..."
+    "DefaultConnection": "Host=localhost;Database=splittat;Username=postgres;Password=..."
   },
   "Jwt": {
     "SecretKey": "your-secret-key-min-32-chars",
-    "Issuer": "Split.API",
-    "Audience": "Split.Frontend",
+    "Issuer": "Splittat.API",
+    "Audience": "Splittat.Frontend",
     "ExpirationMinutes": 60
   },
   "Ocr": {

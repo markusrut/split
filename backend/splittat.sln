@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Split.API", "Split.API\Split.API.csproj", "{BB2DF095-7580-77AC-0003-1B7DC74E01C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splittat.API", "Splittat.API\Splittat.API.csproj", "{BB2DF095-7580-77AC-0003-1B7DC74E01C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

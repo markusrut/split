@@ -1,4 +1,4 @@
-namespace Split.API.Data.Entities;
+namespace Splittat.API.Data.Entities;
 
 public class User
 {
