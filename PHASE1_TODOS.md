@@ -6,38 +6,38 @@ Phase 1 focuses on setting up the foundational infrastructure for both frontend 
 **Estimated Duration**: 1-2 weeks
 **Goal**: Working MVP where users can register, login, upload receipts, and view OCR-extracted items
 
+**Last Updated**: 2025-11-02
+**Current Status**: ~15% Complete - Infrastructure setup done, starting authentication implementation
+
 ---
 
 ## Backend Tasks
 
 ### 1. Project Setup & Configuration
 
-#### 1.1 Initialize .NET 8 Backend Project
-- [ ] Create `backend` directory
-- [ ] Initialize .NET 8 Web API project with minimal API template
-  ```bash
-  dotnet new webapi -n Split.API --minimal
-  ```
-- [ ] Create solution file for better organization
-- [ ] Setup `.gitignore` for .NET projects
-- [ ] Install required NuGet packages:
-  - `Npgsql.EntityFrameworkCore.PostgreSQL`
-  - `Microsoft.EntityFrameworkCore.Design`
-  - `Microsoft.AspNetCore.Authentication.JwtBearer`
-  - `SixLabors.ImageSharp`
-  - `Serilog.AspNetCore`
-  - `Swashbuckle.AspNetCore`
+#### 1.1 Initialize .NET 9 Backend Project (Note: Using .NET 9, not .NET 8)
+- [x] Create `backend` directory
+- [x] Initialize .NET 9 Web API project with minimal API template
+- [x] Create solution file for better organization
+- [x] Setup `.gitignore` for .NET projects
+- [x] Install required NuGet packages:
+  - `Npgsql.EntityFrameworkCore.PostgreSQL` (9.0.4)
+  - `Microsoft.EntityFrameworkCore.Design` (9.0.10)
+  - `Microsoft.AspNetCore.Authentication.JwtBearer` (9.0.10)
+  - `SixLabors.ImageSharp` (3.1.12)
+  - `Serilog.AspNetCore` (9.0.0)
+  - `Swashbuckle.AspNetCore` (9.0.6)
 
 #### 1.2 Project Structure Setup
-- [ ] Create folder structure:
-  - `Endpoints/`
-  - `Services/`
-  - `Data/Entities/`
-  - `Models/Requests/`
-  - `Models/Responses/`
-  - `Infrastructure/`
-- [ ] Configure `Program.cs` with basic service registration
-- [ ] Setup `appsettings.json` and `appsettings.Development.json`
+- [x] Create folder structure:
+  - `Endpoints/` (empty)
+  - `Services/` (empty)
+  - `Data/Entities/` (complete with all entities)
+  - `Models/Requests/` (empty)
+  - `Models/Responses/` (empty)
+  - `Infrastructure/` (empty, needs Extension subdirectory)
+- [x] Configure `Program.cs` with basic service registration (CORS, DbContext)
+- [x] Setup `appsettings.json` and `appsettings.Development.json`
 
 #### 1.3 Configure Logging
 - [ ] Setup Serilog for structured logging
@@ -49,53 +49,27 @@ Phase 1 focuses on setting up the foundational infrastructure for both frontend 
 ### 2. Database Setup (EF Core Code First)
 
 #### 2.1 Create Database Context
-- [ ] Create `AppDbContext.cs` in `Data/`
-- [ ] Configure DbContext options in `Program.cs`
-- [ ] Add connection string to `appsettings.json`
+- [x] Create `AppDbContext.cs` in `Data/`
+- [x] Configure DbContext options in `Program.cs`
+- [x] Add connection string to `appsettings.json`
 
 #### 2.2 Create User Entity
-- [ ] Create `User.cs` entity with properties:
-  - Id (Guid)
-  - Email (string, unique)
-  - PasswordHash (string)
-  - FirstName (string)
-  - LastName (string)
-  - CreatedAt (DateTime)
-- [ ] Configure entity relationships in `AppDbContext`
-- [ ] Add unique index on Email
+- [x] Create `User.cs` entity with all required properties
+- [x] Configure entity relationships in `AppDbContext`
+- [x] Add unique index on Email
 
 #### 2.3 Create Receipt Entities
-- [ ] Create `Receipt.cs` entity:
-  - Id (Guid)
-  - UserId (Guid, FK)
-  - MerchantName (string)
-  - Date (DateTime)
-  - Total (decimal)
-  - Tax (decimal?)
-  - Tip (decimal?)
-  - ImageUrl (string)
-  - Status (enum: Processing, Ready, Failed)
-  - CreatedAt (DateTime)
-- [ ] Create `ReceiptItem.cs` entity:
-  - Id (Guid)
-  - ReceiptId (Guid, FK)
-  - Name (string)
-  - Price (decimal)
-  - Quantity (int)
-  - LineNumber (int)
-- [ ] Configure one-to-many relationship (Receipt → ReceiptItems)
-- [ ] Add indexes for performance
+- [x] Create `Receipt.cs` entity with all fields including Status enum
+- [x] Create `ReceiptItem.cs` entity with all fields
+- [x] Configure one-to-many relationship (Receipt → ReceiptItems)
+- [x] Add indexes for performance
+- [x] **BONUS**: Phase 2 entities already created (Group, GroupMember, Split, ItemAssignment)
 
 #### 2.4 Database Migrations
-- [ ] Install EF Core CLI tools
-  ```bash
-  dotnet tool install --global dotnet-ef
-  ```
-- [ ] Create initial migration
-  ```bash
-  dotnet ef migrations add InitialCreate
-  ```
-- [ ] Review generated migration
+- [x] Install EF Core CLI tools (assumed installed globally)
+- [x] Create initial migration (`InitialCreate`)
+- [x] Review generated migration
+- [ ] Apply migration to database (`dotnet ef database update`)
 - [ ] Test migration rollback capability
 
 ---
@@ -257,11 +231,11 @@ Phase 1 focuses on setting up the foundational infrastructure for both frontend 
 ### 7. API Configuration
 
 #### 7.1 CORS Setup
-- [ ] Configure CORS in `Program.cs`:
+- [x] Configure CORS in `Program.cs`:
   - Allow localhost:5173 (Vite dev server)
   - Allow credentials
   - Allow all headers and methods
-- [ ] Test CORS with frontend
+- [ ] Test CORS with frontend (pending frontend implementation)
 
 #### 7.2 Error Handling
 - [ ] Create global exception handler middleware
@@ -287,13 +261,10 @@ Phase 1 focuses on setting up the foundational infrastructure for both frontend 
 ### 8. Docker Setup
 
 #### 8.1 Docker Compose for PostgreSQL
-- [ ] Create `docker-compose.yml` in project root:
-  - PostgreSQL service
-  - Port 5432
-  - Volume for data persistence
-  - Environment variables
-- [ ] Test database connection
-- [ ] Document connection string
+- [x] Create `docker-compose.yml` in project root with PostgreSQL service
+- [x] Configure port 5432, volumes, environment variables, and health check
+- [ ] Test database connection (need to start Docker and apply migrations)
+- [x] Document connection string in appsettings.json
 
 #### 8.2 Backend Dockerfile (Optional for Phase 1)
 - [ ] Create `Dockerfile` for .NET API
@@ -306,13 +277,10 @@ Phase 1 focuses on setting up the foundational infrastructure for both frontend 
 ### 9. Project Setup
 
 #### 9.1 Initialize React Project
-- [ ] Create `frontend` directory
-- [ ] Initialize Vite + React + TypeScript:
-  ```bash
-  npm create vite@latest . -- --template react-ts
-  ```
-- [ ] Install and run dev server to verify setup
-- [ ] Clean up default Vite template files
+- [x] Create `frontend` directory
+- [x] Initialize Vite + React 19 + TypeScript
+- [x] Install and run dev server to verify setup
+- [ ] Clean up default Vite template files (still showing counter template)
 
 #### 9.2 Install Dependencies
 - [ ] Install core dependencies:
