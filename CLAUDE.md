@@ -265,6 +265,120 @@ yarn test:run       # Run all tests in CI mode
 - Use custom render from `src/test/test-utils.tsx` for components that need providers
 - Aim for meaningful tests that verify component behavior, not implementation details
 
+### Code Quality Standards (Backend)
+
+**IMPORTANT: When adding backend code, ALWAYS follow these testing practices:**
+
+**1. Unit Tests for Services (Complex Logic):**
+- Write unit tests for complex features in services that have different scenarios to cover
+- Test files: `backend/Splittat.API.Tests/[ServiceName]Tests.cs`
+- Use xUnit as the testing framework
+- Focus on testing business logic, edge cases, and error handling
+- Examples of what to test:
+  - Different input scenarios (valid, invalid, edge cases)
+  - Error conditions and exception handling
+  - Business rule validation
+  - Data transformation logic
+  - Parsing algorithms (like OCR text parsing)
+
+**Example Service Test Structure:**
+```csharp
+public class OcrServiceTests
+{
+    [Theory]
+    [InlineData("Total: $45.67", "45.67")]
+    [InlineData("TOTAL 23.45", "23.45")]
+    public void ExtractAmount_VariousFormats_ParsesCorrectly(string line, string expected)
+    {
+        // Arrange, Act, Assert
+    }
+
+    [Fact]
+    public void ProcessReceipt_WithInvalidInput_ThrowsException()
+    {
+        // Test error handling
+    }
+}
+```
+
+**2. Snapshot Tests for All Endpoints:**
+- Create snapshot tests for ALL API endpoints to ensure correct response data
+- Test files: `backend/Splittat.API.Tests/[Feature]EndpointsTests.cs`
+- Use `ITestOutputHelper` to log detailed response data for debugging
+- Cover different scenarios and status codes
+- For endpoints with state (like receipts), test ALL possible states (Processing, Ready, Failed)
+
+**Example Endpoint Snapshot Test Structure:**
+```csharp
+public class ReceiptEndpointsTests : IClassFixture<TestWebApplicationFactory>
+{
+    private readonly ITestOutputHelper _output;
+
+    [Fact]
+    public async Task GetReceipt_WithProcessingStatus_ReturnsCorrectData()
+    {
+        // Arrange - Create receipt in Processing state
+
+        // Act
+        var response = await _client.GetAsync($"/api/receipts/{id}");
+        var receipt = await response.Content.ReadFromJsonAsync<ReceiptResponse>();
+
+        // Assert
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        Assert.Equal(ReceiptStatus.Processing, receipt.Status);
+
+        // Snapshot output for debugging
+        _output.WriteLine($"Receipt Status: {receipt.Status}");
+        _output.WriteLine($"Items Count: {receipt.Items.Count}");
+        _output.WriteLine($"Total: ${receipt.Total}");
+    }
+
+    [Fact]
+    public async Task GetReceipt_WithReadyStatus_ReturnsCorrectData()
+    {
+        // Test Ready status...
+    }
+
+    [Fact]
+    public async Task GetReceipt_WithFailedStatus_ReturnsCorrectData()
+    {
+        // Test Failed status...
+    }
+}
+```
+
+**What to Test in Endpoint Tests:**
+- ✅ Success scenarios (200, 201, 204 responses)
+- ✅ Error scenarios (400, 401, 404, 500 responses)
+- ✅ Authorization (authenticated vs unauthenticated)
+- ✅ Ownership verification (user can only access their own data)
+- ✅ Pagination (if applicable)
+- ✅ Different entity states (Processing, Ready, Failed, etc.)
+- ✅ Complete workflows (create → read → update → delete)
+
+**3. Running Backend Tests:**
+```bash
+# From backend/ directory
+dotnet test                           # Run all tests
+dotnet test --verbosity normal        # Run with detailed output
+dotnet test --filter "ClassName"      # Run specific test class
+dotnet build                          # Verify 0 warnings, 0 errors
+```
+
+**4. Test Coverage Standards:**
+- All services with complex logic must have unit tests
+- All endpoints must have snapshot tests
+- Aim for meaningful test coverage (quality over quantity)
+- Tests should be independent and not rely on execution order
+- Use `TestWebApplicationFactory` for integration tests
+
+**Current Test Status:**
+- Total: 81 tests (74 passing, 7 pending)
+- Auth Endpoints: 13 tests
+- File Storage Service: 19 tests
+- OCR Service: 33 tests
+- Receipt Endpoints: 17 tests (10 passing, 7 pending file upload setup)
+
 ### Adding New Features
 
 1. **Backend-First Approach:**
@@ -272,9 +386,12 @@ yarn test:run       # Run all tests in CI mode
    - Create EF migration: `dotnet ef migrations add FeatureName`
    - Apply migration: `dotnet ef database update`
    - Implement service logic in `Services/`
+   - **Write unit tests for service logic** (in `Splittat.API.Tests/`)
    - Create DTOs in `Models/Requests` and `Models/Responses`
    - Add endpoints in `Endpoints/` (register in Program.cs)
+   - **Write snapshot tests for all endpoints** (in `Splittat.API.Tests/`)
    - Test with Swagger UI or HTTP client
+   - **Run `dotnet test` and `dotnet build` - verify 0 warnings, 0 errors**
 
 2. **Frontend Integration:**
    - Add TypeScript types in `src/types/`

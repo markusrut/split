@@ -101,6 +101,7 @@ builder.Services.AddScoped<PasswordHasher>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<FileStorageService>();
 builder.Services.AddScoped<IOcrService, OcrService>();
+builder.Services.AddScoped<IReceiptService, ReceiptService>();
 
 // Add CORS for frontend
 builder.Services.AddCors(options =>
@@ -159,6 +160,7 @@ app.UseAuthorization();
 
 // Map endpoints
 app.MapAuthEndpoints();
+app.MapReceiptEndpoints();
 
 // Health check endpoint
 app.MapGet("/api/health", () => Results.Ok(new { status = "healthy", timestamp = DateTime.UtcNow }))
