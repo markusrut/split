@@ -449,6 +449,8 @@ VITE_API_BASE_URL=https://localhost:5001/api
 
 ## Project Goals
 
+@PROJECT_PLAN.md
+
 **Primary Goal:** Enable users to quickly split bills by taking a photo of a receipt
 
 **Design Principles:**
